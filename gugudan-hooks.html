@@ -1,0 +1,73 @@
+<html lang="en">
+<head>
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    class Gugudan extends React.Component{
+      constructor(props){
+        super(props);
+        this.state= {
+          first: Math.ceil(Math.random() * 9),
+          second: Math.ceil(Math.random() * 9),
+          value: '',
+          result: undefined
+        }
+      }
+
+      handleSubmit = (e) => {
+        e.preventDefault();
+        const {first, second, value, result} = this.state;
+
+        if(parseInt(value) === first*second) {
+          // 이전 상태값을 받아와서 작동한다. 
+          // setState는 비동기, 값을 받아와서 업데이트 해야 할때는 prevState를 이용한다.
+          this.setState((prevState) => {
+            return {  
+              first: Math.ceil(Math.random() * 9),
+              second: Math.ceil(Math.random() * 9),
+              value: '',
+              result: '정답: '+ prevStatel.value
+            }
+          }
+          )
+          this.input.focus();
+        }else{
+          this.setState({
+            value: '',
+            result: '땡'
+          })
+        }
+      }
+
+      input;
+
+      handleRef = (c) => {
+        this.input = c;
+      }
+
+      render(){
+        console.log('렌더')
+        return (
+          <>
+            <form onSubmit={this.handleSubmit}>
+            <div>{this.state.first} 곱하기 {this.state.second} 는? </div>
+              <input ref={this.handleRef} value={this.state.value} onChange={e => this.setState({value: e.target.value})}/>
+              <button>입력</button>
+            </form>
+            <div>{this.state.result}</div>
+          </>
+        )
+      }
+    }
+
+  </script>
+  <script type="text/babel">
+    ReactDOM.render(<Gugudan/>, document.querySelector('#root'));
+  </script>
+  
+</body>
+</html>
