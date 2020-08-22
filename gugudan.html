@@ -11,16 +11,42 @@
       constructor(props){
         super(props);
         this.state= {
-          first: Math.ceil(Math.random() * 10),
-          second: Math.ceil(Math.random() * 10),
+          first: Math.ceil(Math.random() * 9),
+          second: Math.ceil(Math.random() * 9),
           value: '',
           result: undefined
         }
       }
 
+      handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(2)
+        const {first, second, value, result} = this.state;
+        if(parseInt(value) === first*second) {
+          this.setState({
+            first: Math.ceil(Math.random() * 9),
+            second: Math.ceil(Math.random() * 9),
+            value: '',
+            result: '정답: '+ value
+          })
+        }else{
+          this.setState({
+            value: '',
+            result: '땡'
+          })
+        }
+      }
+
       render(){
         return (
-          <div>odody</div>
+          <>
+            <div>{this.state.first} 곱하기 {this.state.second} 는? </div>
+            <form onSubmit={this.handleSubmit}>
+              <input value={this.state.value} onChange={e => this.setState({value: e.target.value})}/>
+              <button>입력</button>
+            </form>
+            <div>{this.state.result}</div>
+          </>
         )
       }
     }
