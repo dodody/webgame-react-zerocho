@@ -20,15 +20,21 @@
 
       handleSubmit = (e) => {
         e.preventDefault();
-        console.log(2)
         const {first, second, value, result} = this.state;
+
         if(parseInt(value) === first*second) {
-          this.setState({
-            first: Math.ceil(Math.random() * 9),
-            second: Math.ceil(Math.random() * 9),
-            value: '',
-            result: '정답: '+ value
-          })
+          // 이전 상태값을 받아와서 작동한다. 
+          // setState는 비동기, 값을 받아와서 업데이트 해야 할때는 prevState를 이용한다.
+          this.setState((prevState) => {
+            return {  
+              first: Math.ceil(Math.random() * 9),
+              second: Math.ceil(Math.random() * 9),
+              value: '',
+              result: '정답: '+ prevStatel.value
+            }
+          }
+          )
+          this.input.focus();
         }else{
           this.setState({
             value: '',
@@ -37,12 +43,19 @@
         }
       }
 
+      input;
+
+      handleRef = (c) => {
+        this.input = c;
+      }
+
       render(){
+        console.log('렌더')
         return (
           <>
-            <div>{this.state.first} 곱하기 {this.state.second} 는? </div>
             <form onSubmit={this.handleSubmit}>
-              <input value={this.state.value} onChange={e => this.setState({value: e.target.value})}/>
+            <div>{this.state.first} 곱하기 {this.state.second} 는? </div>
+              <input ref={this.handleRef} value={this.state.value} onChange={e => this.setState({value: e.target.value})}/>
               <button>입력</button>
             </form>
             <div>{this.state.result}</div>
