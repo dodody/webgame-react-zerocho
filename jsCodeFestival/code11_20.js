@@ -1,28 +1,28 @@
 // 11
-  let s = 0;
-  for(var i = 1; i<=100;i++){
-    s += i;
-  }
-  console.log(s);
+//   let s = 0;
+//   for(var i = 1; i<=100;i++){
+//     s += i;
+//   }
+//   console.log(s);
 
-// 12
-  let Wizard = class Wizard{
-    constructor (health, mana, armor){
-      this.health = health;
-      this.mana = mana;
-      this.armor = armor;
-    }
-    attack(){
-      console.log('파이어 볼')
-    }
-  }
+// // 12
+//   let Wizard = class Wizard{
+//     constructor (health, mana, armor){
+//       this.health = health;
+//       this.mana = mana;
+//       this.armor = armor;
+//     }
+//     attack(){
+//       console.log('파이어 볼')
+//     }
+//   }
 
-  const x = new Wizard(545, 210, 10);
-  console.log(x.health, x.mana, x.armor);
-  x.attack();
+//   const x = new Wizard(545, 210, 10);
+//   console.log(x.health, x.mana, x.armor);
+//   x.attack();
 
 // 13
-  const planets = ['수성', '금성', '지구', '화성', '목성', '토성', '천왕성', '해왕성'];
+  // const planets = ['수성', '금성', '지구', '화성', '목성', '토성', '천왕성', '해왕성'];
   // let q = prompt('몇번째행성인가요, 숫자를 입력하세요');
   // console.log(planets[q-1])
 
@@ -52,14 +52,38 @@
   // }
 
 // 18 
-  let d18 = prompt('입력하세요 평균을 내 드릴게요!');
-  let dd18 = d18.split(' ')
+  // let d18 = prompt('입력하세요 평균을 내 드릴게요!');
+  // let dd18 = d18.split(' ')
 
-  let sum = 0;
+  // let sum = 0;
 
-  for(let i = 0; i < dd18.length; i++){
-    sum += parseInt(dd18[i], 10)
-    console.log(parseInt(dd18[i], 10))
-  }
-  console.log(sum/dd18.length)
+  // for(let i = 0; i < dd18.length; i++){
+  //   sum += parseInt(dd18[i], 10)
+  //   console.log(parseInt(dd18[i], 10))
+  // }
+  // console.log(sum/dd18.length)
 
+
+// 18
+// let dody = prompt('입력하세요').split(' ');
+// let sum = 0;
+// // 각각 다 더해서 나눠
+// for(let i = 0; i <= 2; i ++){
+//   sum += parseInt(dody[i], 10)
+//   console.log(parseInt(dody[i], 10))
+// }
+// console.log(sum/dody.length)
+
+// 19
+// let dody = prompt('입력하세요.').split(' ')
+
+// // console.log(Math.pow(dody[0], dody[1]))
+// console.log(Math.pow(parseInt(dody[0], 10), parseInt(dody[1], 10)))
+// // dody[1]번 반복해야 
+
+// 20
+let dody = prompt('입력').split(' ');
+let dody0 = parseInt(dody[0], 10)
+let dody1 = parseInt(dody[1], 10)
+let left = parseInt(dody[0], 10) % parseInt(dody[1], 10)
+console.log(Math.floor(dody0/dody1), left)
