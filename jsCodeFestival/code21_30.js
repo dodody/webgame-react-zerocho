@@ -47,4 +47,15 @@
   // }
   
   // 29
-  
+  // let dody = prompt('대문자만 지나가')
+  // if(dody === dody.toUpperCase()){
+  //   console.log('yes')
+  // }else{
+  //   console.log('no')
+  // }
+
+  // 30
+  let dody1 = prompt('문자를 입력')
+  let dody2 = prompt('찾을 문자를 입력')
+
+  console.log(dody1.indexOf(dody2))
