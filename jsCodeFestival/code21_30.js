@@ -34,5 +34,17 @@
   // const obj ={};
 
   // for(let i = 0; i < names.length; i++){
-  //   obj[names[i]] = 
+  //   obj[names[i]] = nums[i]
   // }
+
+  // console.log(obj)
+
+  // 28
+  // const dody = prompt('단어를 입력하세욘').split('')
+
+  // for(let i = 0; i < dody.length -1; i ++){
+  //   console.log(dody[i], dody[i+1])
+  // }
+  
+  // 29
+  
